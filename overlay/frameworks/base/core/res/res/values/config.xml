@@ -151,39 +151,37 @@
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
          (1-based arrays)
-
          Point 1:            (0, value[1]):             lux <= 0
          Point 2:     (level[1], value[2]):  0        < lux <= level[1]
          Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
          ...
          Point N+1: (level[N], value[N+1]):  level[N] < lux
-
          The control points must be strictly increasing.  Each control point
          corresponds to an entry in the brightness backlight values arrays.
          For example, if LUX == level[1] (first element of the levels array)
          then the brightness will be determined by value[2] (second element
          of the brightness values array).
-
          Spline interpolation is used to determine the auto-brightness
          backlight values for LUX levels between these control points.
-
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>16</item>
-        <item>32</item>
-        <item>50</item>
-        <item>100</item>
-        <item>140</item>
-        <item>180</item>
-        <item>240</item>
-        <item>300</item>
-        <item>600</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>4000</item>
-        <item>8000</item>
-        <item>10000</item>
+        <item>128</item>
+        <item>256</item>
+        <item>384</item>
+        <item>512</item>
+        <item>640</item>
+        <item>768</item>
+        <item>896</item>
+        <item>1024</item>
+        <item>2048</item>
+        <item>4096</item>
+        <item>6144</item>
+        <item>8192</item>
+        <item>10240</item>
+        <item>12288</item>
+        <item>14336</item>
+        <item>16384</item>
+        <item>18432</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -193,22 +191,24 @@
          This must be overridden in platform specific overlays -->
 	
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-	<item>5</item>
-	<item>10</item>
-	<item>15</item>
-	<item>20</item>
-	<item>25</item>
-	<item>30</item>
-	<item>35</item>
-	<item>40</item>
-	<item>45</item>
-	<item>50</item>
-	<item>55</item>
-	<item>60</item>
-	<item>70</item>
-	<item>80</item>
-	<item>90</item>
-	<item>100</item>
+        <item>4</item>
+        <item>8</item>
+        <item>98</item>
+        <item>104</item>
+        <item>110</item>
+        <item>116</item>
+        <item>122</item>
+        <item>128</item>
+        <item>134</item>
+        <item>182</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
+        <item>255</item>
    </integer-array>
 
     <!-- Safe headphone volume index. When music stream volume is below this index
@@ -236,11 +236,9 @@
          in gralloc protected buffers.  For this to be true, there must exist
          a protected hardware path for surface flinger to composite and send
          protected buffers to the wifi display video encoder.
-
          If this flag is false, we advise applications not to use protected
          buffers (if possible) when presenting content to a wifi display because
          the content may be blanked.
-
          This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
          flag is set for wifi displays.
     -->
@@ -263,4 +261,8 @@
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
  	 true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
      <add-resource type="bool" name="config_useSystemClockforRotationSensor">true</add-resource>
+	 
+	<!-- Configuration to support SIM contact batch operation -->
+    <bool name="config_sim_phonebook_batch_operation">false</bool>
+	 
 </resources>

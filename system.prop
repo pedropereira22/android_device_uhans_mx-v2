@@ -1,4 +1,12 @@
 # system.prop
+# NOTE_S
+
+# navbar  0 or 1 disable/enable 
+qemu.hw.mainkeys=1
+
+# Low-ram optimizations
+ro.config.low_ram=true
+persist.sys.force_highendgfx=true
 
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
@@ -21,6 +29,10 @@ mediatek.wlan.ctia=0
 
 #
 wifi.tethering.interface=ap0
+#
+
+#
+dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
 #
 
 ro.opengles.version=131072
@@ -46,10 +58,10 @@ ro.mtk_perf_response_time=1
 persist.sys.timezone = Europe/Moscow
 
 ro.mtk_perfservice_support=1
-
+=/data/anr/mtk_traces.tx
 persist.logd.logpersistd=logcatd
 
-ro.telephony.default_network=9
+ro.telephony.default_network=0
 
 # ClearMotion
 persist.sys.display.clearMotion=0

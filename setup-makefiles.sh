@@ -18,8 +18,8 @@
 set -e
 
 # Required!
-DEVICE=z5
-VENDOR=leagoo
+DEVICE=leagoo
+VENDOR=z5
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

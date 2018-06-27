@@ -13,7 +13,7 @@ import init.epdg.rc
 import init.trustonic.rc
 import init.modem.rc
 import init.target.rc
-
+import /init.trace.rc
 on early-init
     # Turn off backlight on blank
     write /sys/class/leds/lcd-backlight/trigger "backlight"
@@ -161,10 +161,9 @@ on post-fs-data
 
     mkdir /data/drm/wv 0770 drm system
 
-# GPS
+    # GPS
     mkdir /data/gps_mnl 0771 gps system
-    mkdir /data/misc/gps 0771 gps system
-    restorecon_recursive /data/misc/gps
+    mkdir /data/misc/gps 0770 gps system
 
     # NFC
     mkdir /data/nfc_socket 0771 nfc radio
@@ -513,7 +512,7 @@ on post-fs-data
 
     # device info /proc interface
     mknod /dev/devmap c 196 0;
-    chmod 0440 /dev/devmap
+    chmod 0777 /dev/devmap
     chown root system /dev/devmap
 
     # BT relayer mode used VCOM
@@ -660,6 +659,8 @@ on post-fs-data
     # AGPS
     mkdir /data/agps_supl 0771 gps system
 
+    chmod 0666 /dev/exm0
+
     # Recycle stuffs
     exec /system/bin/rm -f /cache/.ipoh.img
     
@@ -772,22 +773,6 @@ on boot
 # BT relayer mode USB VCOM
     chown bluetooth radio /dev/ttyGS2
     chmod 0660 /dev/ttyGS2
-
-on property:ro.board.platform=mt6753
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1300000
-
-#[+] Decker (see other configs for ro.board.platform)
-on property:ro.board.platform=mt6737t
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 1300000
-
-on property:ro.board.platform=mt6580
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 988000
 
 on property:vold.decrypt=trigger_reset_main
     start stop_modem
@@ -1180,6 +1165,11 @@ service agpsd /system/bin/mtk_agpsd
     socket agpsd3 stream 660 gps inet
     user gps
     group gps radio inet sdcard_r sdcard_rw misc
+
+service slpd /system/bin/slpd
+    class main
+    user gps
+    group gps inet
 
 service wifi2agps /system/bin/wifi2agps
     class main

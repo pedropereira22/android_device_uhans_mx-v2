@@ -19,11 +19,15 @@ patch -p1 < ../../device/leagoo/z5/patches/frameworks_native.patch
 cd ../..
 cd frameworks/base
 patch -p1 < ../../device/leagoo/z5/patches/frameworks_base.patch
+patch -p1 < ../../device/leagoo/z5/patches/0007-fix-out-of-memory-gl-crashes.patch
 cd ../..
 cd system/netd
 patch -p1 < ../../device/leagoo/z5/patches/0010-wifi-tethering-fix.patch
 cd ../..
-#cd packages/apps/Settings
-#git apply -v ../../../device/leagoo/z5/patches/0001-Lunch-MiraVision-from-Settings.patch
-#cd ../../..
+cd external/wpa_supplicant_8
+patch -p1 < ../../device/leagoo/z5/patches/0005-fix-wlan-hidden-wifi-scan.patch
+cd ../..
+cd packages/apps/Settings
+patch -p1 < ../../../device/leagoo/z5/patches/0001-add-MiraVision-in-Settings.patch
+cd ../../..
 

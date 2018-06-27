@@ -22,5 +22,18 @@ Note: Miravision is included but disabled by default, to enable, set "MiraVision
 |       Weight:     | 147 g                |
 
 
+Bug	tracker
+---------------
+- [x] battery drain on daily use (compared to earlier version)
+- [x] Can not connect to hidden WIFI / WPS
+- [x] import contacts from sim card
+- [x] Some apps fast crash
+- [x] Blackscreen after unlock
+- [x] FM Radio
+- [ ] ril is not stable
+- [ ] GPS with device only (with patch and ramdisk changes)
+- [ ] Video recording inverted color (workarround: third party camera)
+
 
 Adapted from this Device tree: https://github.com/rock12/android_device_Doogee_X5
+Bugs fixed from this device tree: https://github.com/seluce/android_device_cubot_note_s-n
