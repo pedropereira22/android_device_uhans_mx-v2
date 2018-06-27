@@ -24,12 +24,12 @@ persist.sys.display.clearMotion=0
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/CUBOT/NOTE_S/NOTE_S-vendor.mk)
+$(call inherit-product-if-exists, vendor/leagoo/z5/z5-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/CUBOT/NOTE_S/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/CUBOT/NOTE_S/overlay # enable this to be able overlay a default wallpaper
+DEVICE_PACKAGE_OVERLAYS += device/leagoo/z5/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/leagoo/z5/overlay # enable this to be able overlay a default wallpaper
 
-LOCAL_PATH := device/CUBOT/NOTE_S
+LOCAL_PATH := device/leagoo/z5
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -151,11 +151,11 @@ PRODUCT_PACKAGES += \
 	MiraVision
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_NOTE_S
-# PRODUCT_DEVICE := NOTE_S
+PRODUCT_NAME := full_z5
+# PRODUCT_DEVICE := z5
 
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
