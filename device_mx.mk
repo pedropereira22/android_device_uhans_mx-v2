@@ -27,12 +27,12 @@ persist.sys.display.clearMotion=0
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/leagoo/z5/z5-vendor.mk)
+$(call inherit-product-if-exists, vendor/uhans/mx/mx-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/leagoo/z5/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/leagoo/z5/overlay # enable this to be able overlay a default wallpaper
+DEVICE_PACKAGE_OVERLAYS += device/uhans/mx/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/uhans/mx/overlay # enable this to be able overlay a default wallpaper
 
-LOCAL_PATH := device/leagoo/z5
+LOCAL_PATH := device/uhans/mx
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -156,11 +156,11 @@ ifeq ($(MIRAVISION),true)
 endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_z5
-# PRODUCT_DEVICE := z5
+PRODUCT_NAME := full_mx
+# PRODUCT_DEVICE := mx
 
-TARGET_SCREEN_HEIGHT := 854
-TARGET_SCREEN_WIDTH := 480
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 

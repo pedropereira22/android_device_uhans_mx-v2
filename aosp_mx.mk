@@ -23,14 +23,14 @@ PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-PRODUCT_DEVICE := z5
-PRODUCT_NAME := full_z5
-PRODUCT_BRAND := Leagoo
-PRODUCT_MODEL := Leagoo Z5
-PRODUCT_MANUFACTURER := Leagoo
+PRODUCT_DEVICE := mx
+PRODUCT_NAME := full_mx
+PRODUCT_BRAND := Uhans
+PRODUCT_MODEL := Uhans MX
+PRODUCT_MANUFACTURER := uhans
 
-$(call inherit-product, device/leagoo/z5/device_z5.mk)
-$(call inherit-product-if-exists, vendor/leagoo/z5/device-vendor.mk)
+$(call inherit-product, device/uhans/mx/device_mx.mk)
+$(call inherit-product-if-exists, vendor/uhans/mx/device-vendor.mk)
 
-PRODUCT_NAME := aosp_z5
+PRODUCT_NAME := aosp_mx
 

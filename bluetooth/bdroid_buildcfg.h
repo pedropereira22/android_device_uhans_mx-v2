@@ -19,6 +19,6 @@
 
 #define BTA_DISABLE_DELAY 1000 /* in milliseconds */
 
-#define BTM_DEF_LOCAL_NAME   "Leagoo Z5"
+#define BTM_DEF_LOCAL_NAME   "Uhans MX"
 
 #endif

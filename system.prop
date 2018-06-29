@@ -2,7 +2,7 @@
 # NOTE_S
 
 # navbar  0 or 1 disable/enable 
-qemu.hw.mainkeys=1
+qemu.hw.mainkeys=0
 
 # Low-ram optimizations
 ro.config.low_ram=true
@@ -50,7 +50,7 @@ ro.kernel.zio=38,108,105,16
 # Disable dirty region for Mali
 debug.hwui.render_dirty_regions=false
 
-ro.sf.lcd_density=220
+ro.sf.lcd_density=320
 
 # performance
 ro.mtk_perf_simple_start_win=1
